@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-
+import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -12,11 +11,16 @@ export class SignupComponent implements OnInit {
     password: '',
   };
 
-  constructor() {}
+  constructor(private authService: AuthService) {}
 
   ngOnInit(): void {}
 
   signUp() {
-    console.log(this.user);
+    this.authService.signUp(this.user).subscribe(
+      (res) => {
+        console.log(res);
+      },
+      (err) => console.log(err)
+    );
   }
 }
