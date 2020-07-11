@@ -5,6 +5,8 @@ import { TasksComponent } from './components/tasks/tasks.component';
 import { PrivateTasksComponent } from './components/private-tasks/private-tasks.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { SigninComponent } from './components/signin/signin.component';
+//Auth guard
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   {
@@ -19,6 +21,7 @@ const routes: Routes = [
   {
     path: 'private',
     component: PrivateTasksComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'signup',
