@@ -23,11 +23,12 @@ const routes: Routes = [
     component: PrivateTasksComponent,
     canActivate: [AuthGuard],
   },
+  { path: 'signin', component: SigninComponent },
+
   {
     path: 'signup',
     component: SignupComponent,
   },
-  { path: 'signin', component: SigninComponent },
 ];
 
 @NgModule({
